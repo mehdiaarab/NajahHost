@@ -58,6 +58,27 @@
             </div>
         </nav>
     {% endblock %}
+    
+    {% block sessionMessages %}
+        
+        <div class="container">
+        {% for type, alerts in app.session.flashbag.all() %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-{{ type }}">
+                        {% for msg in alerts %}
+                            <p>
+                                {{ msg }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+        
+    {% endblock %}
+    
     {% block body %}
 
     {% endblock %}

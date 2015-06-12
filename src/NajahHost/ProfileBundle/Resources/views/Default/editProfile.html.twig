@@ -11,14 +11,21 @@
 
             <div class="col-md-8">
                 <div class="panel">
-                	<div class="panel-body">
-                		<h4 class="page-header">
-                		    A propos
-                		</h4>
-                		<p>
-                		    
-                		</p>
-                	</div>
+                    <div class="panel-body">
+                        {{ form_start(form, {"attr" : { 'autocomplete':"off"}}) }}
+                        <h4> A propos </h4>
+                        <div class="form-group">
+                            {{ form_widget(form.about, {'attr': {'class': 'form-control', 'autofocus' : 'autofocus'                             , 'rows':'7'}}) }}
+                        </div>
+                        <h4> Profession </h4>
+                        <div class="form-group">
+                            {{ form_widget(form.profession, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class='btn btn-lg btn-success' >Modifier</button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
                 </div>
             </div>
 
