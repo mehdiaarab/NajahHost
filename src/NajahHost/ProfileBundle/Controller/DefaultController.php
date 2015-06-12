@@ -22,6 +22,8 @@ class DefaultController extends Controller
     	$user = $this->getDoctrine()
     	->getRepository('UserBundle:User')
     	->findOneByUsername($username);
+        
+       
 
         return $this->render('ProfileBundle:Default:editProfile.html.twig', array('user' => $user));
 
