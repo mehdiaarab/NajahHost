@@ -1,0 +1,51 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+	{% block fos_user_content %}
+		
+
+
+
+    <!-- <label for="username">{{ 'security.login.username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+    
+    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" />
+    
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label> -->
+
+    <div class="container">
+    	<div class="row">
+    		{% if error %}
+    			<div class="alert alert-danger">
+    				{{ error.messageKey|trans(error.messageData, 'security') }}
+    			</div>			
+    		{% endif %}
+    	</div>
+    	<div class="row">
+    		<div class="col-lg-4 col-lg-offset-4">
+    			<div class="card card-container">
+    				<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+    				<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    				<p id="profile-name" class="profile-name-card"></p>
+    				<form action="{{ path("fos_user_security_check") }}" method="post" class="form-signing">
+    					<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    					<span id="reauth-email" class="reauth-email"></span>
+    					<div class="form-group">
+						<label for="">Nom d'utilisateur</label>    						
+    						<input d="username" name="_username" value="{{ last_username }}" class="form-control" placeholder="Nom d'utilisateur" required autofocus>
+    					</div>
+    					<div class="form-group">
+    						<label for="">Mot de passe</label>
+    						<input  type="password" id="password" name="_password" required="required" class="form-control" placeholder="Mot de passe" >
+    					</div>
+    					<div class="form-group">
+    						<button id="_submit"  class="btn btn-lg btn-primary btn-block btn-signin" type="submit" name="_submit">Connexion</button>
+    					</div>
+    				</form><!-- /form -->
+    			</div><!-- /card-container --></div>
+    		</div>
+    	</div>
+    {% endblock fos_user_content %}

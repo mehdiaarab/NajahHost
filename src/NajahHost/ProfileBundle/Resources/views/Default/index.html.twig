@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	
+	<div class="container">
+		
+		<div class="row">
+
+			<div class="col-lg-12">
+				<h3 class="page-header" >Bienvenu <b>{{ user.username }}</b> <small><a href="{{ path('edit_profile',{'username':user.username}) }}">modifier profile</a></small> <label for="" class="label label-success pull-right">{{ user.profession }}</label></h3>
+				<div class="clearfix"></div>
+			</div>
+
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-12">
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8">
+				<h4 class="page-header">
+					A propos
+				</h4>
+				<p>
+					{{ user.about }}
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h4 class="page-header">Skills</h4>
+				<p>
+					<span class="label label-primary">PHP</span>
+					<span class="label label-primary">HTML</span>
+					<span class="label label-primary">Wordpress</span>
+					<span class="label label-primary">Photoshop</span>
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

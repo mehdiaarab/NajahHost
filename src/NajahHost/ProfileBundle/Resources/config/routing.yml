@@ -1,0 +1,7 @@
+profile:
+    path:     /profile/{username}
+    defaults: { _controller: ProfileBundle:Default:profile }
+
+edit_profile:
+    path:     /profile/edit/{username}
+    defaults: { _controller: ProfileBundle:Default:editProfile }
