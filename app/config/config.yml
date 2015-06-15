@@ -85,3 +85,8 @@ fos_user:
     firewall_name: main
     user_class: NajahHost\UserBundle\Entity\User
 
+fos_message:
+    db_driver: orm
+    thread_class: NajahHost\MessageBundle\Entity\Thread
+    message_class: NajahHost\MessageBundle\Entity\Message
+

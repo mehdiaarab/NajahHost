@@ -10,4 +10,13 @@ class DefaultController extends Controller
     {
         return $this->render('UserBundle:Default:index.html.twig', array('name' => $name));
     }
+
+    public function listAllUsersAction()
+    {
+        $users = $this->getDoctrine()->getRepository('UserBundle:User')->findAll();
+        return $this->render('UserBundle:Default:listAllUsers.html.twig', array('users' => $users));
+    }
+
+
+
 }

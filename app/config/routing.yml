@@ -1,3 +1,7 @@
+message:
+    resource: "@MessageBundle/Resources/config/routing.yml"
+    prefix:   /
+
 profile:
     resource: "@ProfileBundle/Resources/config/routing.yml"
     prefix:   /
@@ -12,4 +16,8 @@ general:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /messages
 

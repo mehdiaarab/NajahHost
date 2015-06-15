@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new NajahHost\UserBundle\UserBundle(),
             new NajahHost\ProfileBundle\ProfileBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new NajahHost\MessageBundle\MessageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
