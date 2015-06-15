@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 projet:
     resource: "@ProjetBundle/Resources/config/routing.yml"
+=======
+project:
+    resource: "@ProjectBundle/Resources/config/routing.yml"
+>>>>>>> upstream/master
     prefix:   /
 
 profile:

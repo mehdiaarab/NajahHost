@@ -36,8 +36,8 @@
                     </ul>
                     {% if app.user is not empty %}
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="{{ path('profile', {'username': app.user.username}) }}">{{ app.user.username }}</a></li>
-                            <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
+                            <li><a href="{{ path('profile', {'username': app.user.username}) }}"><i class="fa fa-user"></i> {{ app.user.username }}</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> Deconnexion</a></li>
                         </ul>
                         {% else %}
                              <form class="navbar-form navbar-right"  action="{{ path('fos_user_security_check') }}" method="POST">
