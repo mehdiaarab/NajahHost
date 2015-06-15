@@ -1,3 +1,7 @@
+project:
+    resource: "@ProjectBundle/Resources/config/routing.yml"
+    prefix:   /
+
 profile:
     resource: "@ProfileBundle/Resources/config/routing.yml"
     prefix:   /
