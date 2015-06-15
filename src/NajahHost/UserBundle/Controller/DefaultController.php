@@ -18,11 +18,5 @@ class DefaultController extends Controller
     }
 
 
-    public function sendMessageAction($username)
-    {
-
-        return $this->render('UserBundle:Default:sendMessage.html.twig');
-    }
-
 
 }

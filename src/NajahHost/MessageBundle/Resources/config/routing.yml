@@ -1,0 +1,7 @@
+messages:
+    path:     /messages
+    defaults: { _controller: MessageBundle:Default:index }
+
+send_message:
+  path:   /send-message/{username}
+  defaults: { _controller: MessageBundle:Default:sendMessage}
