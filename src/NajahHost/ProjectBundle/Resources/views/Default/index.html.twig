@@ -1,0 +1,68 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <!-- Panel Menu  -->
+            <div class="col-lg-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h4 class="page-header">Panel chef projet : <span class="myColor">{{ app.user.username }}</span>
+                        </h4>
+
+                        <div class="help-block">Menu principale</div>
+                        <a class="btn btn-primary btn-lg" href=""><i class="fa fa-home"></i> Accueil</a>
+                        <a class="btn btn-primary btn-lg" href=""><i class="fa fa-list"></i> Mes projets</a>
+                        <a class="btn btn-primary btn-lg" href=""><i class="fa fa-group"></i> List des membres</a>
+                        <a class="btn btn-success btn-lg" href=""><i class="fa fa-group"></i> Créer un nouveau
+                            projet</a>
+                        <!-- end menu principale -->
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2></h2>
+                                <div class="help-block">List de mes projets actives</div>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">pBoard Project - Mobile App</h4>
+
+                                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget
+                                            metus. Maecenas sed diam eget risus varius blandit.</p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">The Valar Morgulis Project</h4>
+
+                                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget
+                                            metus. Maecenas sed diam eget risus varius blandit.</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h2></h2>
+                                <div class="help-block">Messages</div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <span class="badge">14</span>
+                                        <a href="" class="message-name" ><span class="small" >from : </span> <b>mehdiaarab</b></a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="badge">14</span>
+                                        <a href="" class="message-name" ><span class="small" >from : </span> <b>mehdiaarab</b></a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="badge">14</span>
+                                        <a href="" class="message-name" ><span class="small" >from : </span> <b>mehdiaarab</b></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--List des projets  -->
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

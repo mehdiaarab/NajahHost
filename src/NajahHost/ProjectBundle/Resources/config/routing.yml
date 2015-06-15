@@ -1,0 +1,3 @@
+project_homepage:
+    path:     /panel-chef-projet/{username}
+    defaults: { _controller: ProjectBundle:Default:index }
