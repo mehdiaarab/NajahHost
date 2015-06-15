@@ -1,6 +1,6 @@
 <?php
 
-namespace NajahHost\ProjectBundle\Tests\Controller;
+namespace NajahHost\MessageBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
