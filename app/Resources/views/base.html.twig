@@ -36,6 +36,7 @@
                     </ul>
                     {% if app.user is not empty %}
                         <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{ path('list_all_users') }}"><i class="fa fa-users"></i>  Membres</a></li>
                             <li><a href="{{ path('profile', {'username': app.user.username}) }}"><i class="fa fa-user"></i> {{ app.user.username }}</a></li>
                             <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> Deconnexion</a></li>
                         </ul>

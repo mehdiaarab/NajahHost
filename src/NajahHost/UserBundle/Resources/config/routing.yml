@@ -1,3 +1,7 @@
-user_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: UserBundle:Default:index }
+list_all_users:
+    path:     /users/all
+    defaults: { _controller: UserBundle:Default:listAllUsers }
+
+send_message:
+    path:     /send-message/{username}
+    defaults: { _controller: UserBundle:Default:sendMessage }
