@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10e69c0d-7cf8-4ca0-ae59-8610795de968" name="Default" comment="">
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Controller\DefaultController.php" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\DependencyInjection\Configuration.php" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\DependencyInjection\ProjectExtension.php" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\ProjectBundle.php" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Resources\config\routing.yml" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Resources\config\services.yml" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Resources\doc\index.rst" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Resources\translations\messages.fr.xlf" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Resources\views\Default\index.html.twig" afterPath="" />
-      <change type="DELETED" beforePath="H:\Sites\NajahHost\src\NajahHost\ProjectBundle\Tests\Controller\DefaultControllerTest.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-    </list>
+    <list default="true" id="10e69c0d-7cf8-4ca0-ae59-8610795de968" name="Default" comment="" />
     <ignored path="NajahHost.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -229,9 +216,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -239,6 +223,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -365,7 +352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.76112026" vertical-offset="0" max-vertical-offset="990">
           <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -373,7 +359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="607">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
