@@ -1,0 +1,30 @@
+tache:
+    path:     /
+    defaults: { _controller: "ProjetBundle:Tache:index" }
+
+tache_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetBundle:Tache:show" }
+
+tache_new:
+    path:     /new
+    defaults: { _controller: "ProjetBundle:Tache:new" }
+
+tache_create:
+    path:     /create
+    defaults: { _controller: "ProjetBundle:Tache:create" }
+    requirements: { _method: post }
+
+tache_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetBundle:Tache:edit" }
+
+tache_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProjetBundle:Tache:update" }
+    requirements: { _method: post|put }
+
+tache_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetBundle:Tache:delete" }
+    requirements: { _method: post|delete }
