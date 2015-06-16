@@ -3,6 +3,7 @@
 namespace NajahHost\MessageBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -71,5 +72,47 @@ class DefaultController extends Controller
     }
 
 
+    public function sentBoxAction()
+    {
+
+        return $this->render('MessageBundle:Default:sentBox.html.twig');
+    }
+
+    public function showThreadAction($threadid)
+    {
+        $provider = $this->container->get('fos_message.provider');
+        $thread = $provider->getThread($threadid);
+
+        $form = $this->createFormBuilder()
+                            ->add('body','textarea')
+                            ->getForm();
+
+        $req = Request::createFromGlobals();
+        $form->handleRequest($req);
+
+        if($form->isValid())
+        {
+            try{
+
+                $data = $form->getData();
+
+                $composer = $this->container->get('fos_message.composer');
+                $message = $composer->reply($thread)
+                    ->setSender($this->getUser())
+                    ->setBody($data['body'])
+                    ->getMessage();
+
+                $sender = $this->container->get('fos_message.sender');
+                $sender->send($message);
+
+            }catch (Exception $e){
+
+            }
+        }
+
+        return $this->render('MessageBundle:Default:showThread.html.twig',
+            array('thread' => $thread, 'form' => $form->createView())
+        );
+    }
 
 }

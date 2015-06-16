@@ -5,3 +5,11 @@ messages:
 send_message:
   path:   /send-message/{username}
   defaults: { _controller: MessageBundle:Default:sendMessage}
+
+sent_box:
+  path:   /sentBox
+  defaults: { _controller: MessageBundle:Default:sentBox}
+
+show_thread:
+  path:   /show-thread/{threadid}
+  defaults: { _controller: MessageBundle:Default:showThread}
