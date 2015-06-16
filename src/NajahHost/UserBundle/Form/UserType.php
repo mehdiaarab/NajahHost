@@ -15,13 +15,12 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('about','textarea')
-            ->add('profession','choice', array(
-            'choices'   => array('Designer' => 'Designer', 'Développeur' => 'Développeur','Administrateur Base Données' => 'Administrateur Base Données'),
-            'required'  => true))
-        ;
+            ->add('about', 'textarea')
+            ->add('profession', 'choice', array(
+                'choices' => array('Designer' => 'Designer', 'Développeur' => 'Développeur', 'Administrateur Base Données' => 'Administrateur Base Données'),
+                'required' => true));
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
