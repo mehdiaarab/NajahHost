@@ -2,21 +2,25 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class="col-lg-10 col-lg-offset-1">
                 <div class="panel">
                     <div class="panel-body">
-                        <h4 class="page-header">Messages</h4>
+                        <h4 class="page-header">Messages : <span class="label label-default">Inbox</span></h4>
                         <table class="table table-responsive">
                             <tr>
                                 <th>De.</th>
+                                <th>Date d'envoie</th>
                                 <th>Sujet</th>
                                 <th>Action</th>
                             </tr>
-                            <tr>
-                                <td><a href="{{ path('profile', {'username' : 'mehdiaarab'}) }}">mehdiaarab</a></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            {% for thread in threads %}
+                                <tr>
+                                    <td><a href="{{ path('profile', {'username' : 'mehdiaarab'}) }}">{{ thread.createdBy.username }}</a></td>
+                                    <td><b>{{ thread.createdAt|date("m/d/Y H:i:s")}}</b></td>
+                                    <td><b>{{ thread.subject }}</b></td>
+                                    <td><a class="btn btn-default btn-sm" href="">Voir</a></td>
+                                </tr>
+                            {% endfor %}
                         </table>
                     </div>
                 </div>
