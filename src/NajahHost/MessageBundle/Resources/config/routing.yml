@@ -13,3 +13,7 @@ sent_box:
 show_thread:
   path:   /show-thread/{threadid}
   defaults: { _controller: MessageBundle:Default:showThread}
+
+delete_thread:
+  path: /deleteThread/{threadid}
+  defaults: { _controller: MessageBundle:Default:deleteThread}
