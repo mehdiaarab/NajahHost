@@ -17,9 +17,12 @@ class ProjetType extends AbstractType
         $builder
             ->add('titre')
             ->add('description')
-            ->add('dateD')
-            ->add('dateF')
-            ->add('chefProjet')
+            ->add('dateD','date', array(
+                'years' => range(date('Y')-5 , date('Y')+5),
+            ))
+            ->add('dateF','date', array(
+                'years' => range(date('Y')-5 , date('Y')+5),
+            ))
         ;
     }
     

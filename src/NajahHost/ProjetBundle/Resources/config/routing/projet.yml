@@ -28,3 +28,7 @@ projet_delete:
     path:     /{id}/delete
     defaults: { _controller: "ProjetBundle:Projet:delete" }
     requirements: { _method: post|delete }
+
+projet_supprimer:
+    path:     /{id}/sup
+    defaults: { _controller: "ProjetBundle:Projet:supprimer" }

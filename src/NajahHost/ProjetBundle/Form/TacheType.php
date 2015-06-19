@@ -19,7 +19,10 @@ class TacheType extends AbstractType
             ->add('description')
             ->add('dateD')
             ->add('dateF')
-            ->add('employes')
+            ->add('employes', null, array(
+                'expanded' => true,
+                'multiple' => true,
+            ))
         ;
     }
     

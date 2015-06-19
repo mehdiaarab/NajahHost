@@ -41,11 +41,6 @@ class Projet
     private $chefProjet;
 
     /**
-     * @ORM\OneToMany(targetEntity="\najahhost\ProjetBundle\Entity\Tache", mappedBy="Tache")
-     */
-    private $taches;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateD", type="date")

@@ -1,15 +1,62 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Tache creation</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h3>Création d'une nouvelle tâche<br>Projet: {{ projet.titre }}</h3>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        {% if not form.vars.valid %}
+                            <div class="alert alert-dismissible alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                {{ form_errors(form) }}
+                            </div>
+                        {% endif %}
+                        <form action="{{ path('tache_create') }}" {{ form_enctype(form) }} method="POST">
+                            <input type="hidden" value="{{ projet.id }}" name="projet">
+                            <div class="form-group">
+                                {{ form_widget(form.titre, {'attr': {'class':'form-control','placeholder':'titre du projet'}}) }}
+                            </div>
 
-    {{ form(form) }}
+                            <div class="form-group">
+                                {{ form_widget(form.description, {'attr': {'class':'form-control','placeholder':'Description'}}) }}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Date de début</label>
+                                        {{ form_widget(form.dateD, {'attr': {'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Date de fin</label>
+                                        {{ form_widget(form.dateF, {'attr': {'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Equipe de travail</label>
+                                {{ form_widget(form.employes, {'attr': {'class':'form-control'}}) }}
+                            </div>
+                            <div class="text-left col-lg-6">
+                                <a class="btn btn-default" href="{{ path('tache', { 'id_projet': projet.id }) }}">
+                                    <i class="glyphicon glyphicon-list"></i> Retour à la liste
+                                </a>
+                            </div>
+                            <div class="text-right col-lg-6">
+                                <button type="submit" class="btn btn-success" >Confirmer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('tache') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
 {% endblock %}

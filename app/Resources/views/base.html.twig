@@ -95,6 +95,24 @@
     </script>
     <script src="{{ asset('js/bootstrap.min.js') }}">
     </script>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                (function ($) {
+                    $('#filter').keyup(function () {
+
+                        var rex = new RegExp($(this).val(), 'i');
+                        $('.searchable tr').hide();
+                        $('.searchable tr').filter(function () {
+                            return rex.test($(this).text());
+                        }).show();
+
+                    })
+
+                }(jQuery));
+
+            });
+    </script>
 {% endblock %}
 </body>
 </html>

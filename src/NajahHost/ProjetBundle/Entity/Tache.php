@@ -53,6 +53,27 @@ class Tache
     private $employes;
 
     /**
+     * @ORM\ManyToOne(targetEntity="\najahhost\ProjetBundle\Entity\Projet")
+     */
+    private $projet;
+
+    /**
+     * @return mixed
+     */
+    public function getProjet()
+    {
+        return $this->projet;
+    }
+
+    /**
+     * @param mixed $projet
+     */
+    public function setProjet($projet)
+    {
+        $this->projet = $projet;
+    }
+
+    /**
      * @return mixed
      */
     public function getEmployes()

@@ -22,9 +22,8 @@ class ProjetController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ProjetBundle:Projet')->findAll();
-
+        $user=$this->get('security.context')->getToken()->getUser();
+        $entities = $em->getRepository('ProjetBundle:Projet')->findBy(array('chefProjet'=>$user));
         return $this->render('ProjetBundle:Projet:index.html.twig', array(
             'entities' => $entities,
         ));
@@ -38,9 +37,10 @@ class ProjetController extends Controller
         $entity = new Projet();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
+        $user=$this->get('security.context')->getToken()->getUser();
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $entity->setChefProjet($user);
             $em->persist($entity);
             $em->flush();
 
@@ -202,6 +202,15 @@ class ProjetController extends Controller
             $em->flush();
         }
 
+        return $this->redirect($this->generateUrl('projet'));
+    }
+
+    public function supprimerAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = $em->getRepository('ProjetBundle:Projet')->find($id);
+        $em->remove($entity);
+        $em->flush();
         return $this->redirect($this->generateUrl('projet'));
     }
 
