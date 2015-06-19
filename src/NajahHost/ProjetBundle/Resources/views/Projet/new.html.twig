@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
+            <div class="col-lg-10 col-lg-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="panel-title">
@@ -20,11 +20,11 @@
                         {% endif %}
                         <form action="{{ path('projet_create') }}" {{ form_enctype(form) }} method="POST">
                             <div class="form-group">
-                                {{ form_widget(form.titre, {'attr': {'class':'form-control','placeholder':'titre du projet'}}) }}
+                                {{ form_widget(form.titre, {'attr': {'class':'form-control','placeholder':'Titre de projet'}}) }}
                             </div>
 
                             <div class="form-group">
-                                {{ form_widget(form.description, {'attr': {'class':'form-control','placeholder':'Description'}}) }}
+                                {{ form_widget(form.description, {'attr': {'class':'form-control','placeholder':'Description de projet','rows':'8'}}) }}
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -47,8 +47,9 @@
                                 </a>
                             </div>
                             <div class="text-right col-lg-6">
-                                <button type="submit" class="btn btn-success" >Confirmer</button>
+                                <button type="submit" class="btn btn-success">Confirmer</button>
                             </div>
+                            {{ form_widget(form._token) }}
                         </form>
                     </div>
                 </div>
