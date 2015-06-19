@@ -1,3 +1,6 @@
+projet:
+    resource: "@ProjetBundle/Resources/config/routing.yml"
+
 message:
     resource: "@MessageBundle/Resources/config/routing.yml"
     prefix:   /

@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new NajahHost\UserBundle\UserBundle(),
             new NajahHost\ProfileBundle\ProfileBundle(),
+            new najahhost\ProjetBundle\ProjetBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
             new NajahHost\MessageBundle\MessageBundle(),
         );

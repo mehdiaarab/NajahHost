@@ -1,0 +1,4 @@
+services:
+#    projet.example:
+#        class: najahhost\ProjetBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h3>{{ entity.titre }}</h3>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover table-bordered table-condensed">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ entity.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Date de debut</th>
+                <td>{{ entity.dateD|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ entity.dateF|date('Y-m-d') }}</td>
+            </tr>
+        </tbody>
+                    </table>
+                    <a class="btn btn-default" href="{{ path('tache', { 'id_projet': entity.projet.id }) }}">
+                        <i class="glyphicon glyphicon-list"></i> liste des taches
+                    </a>
+                    <a class="btn btn-primary" href="{{ path('tache_edit', { 'id': entity.id }) }}">
+                        <i class="glyphicon glyphicon-pencil"></i> Modifier
+                    </a>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-default">Membres</a>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('list_taches_users', { 'id': entity.id }) }}">Voir membres</a></li>
+                            <li><a href="{{ path('tache_edit_affecter', { 'id': entity.id }) }}">Affecter membre(s)</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-danger"  href="{{ path('projet_supprimer', { 'id': entity.id }) }}">
+                        <i class="glyphicon glyphicon-remove"></i> Supprimer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+{% endblock %}
