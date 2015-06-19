@@ -1,0 +1,10 @@
+projet_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ProjetBundle:Default:index }
+projet_home:
+    resource: "@ProjetBundle/Resources/config/routing/projet.yml"
+    prefix:   /projet
+
+tache_home:
+    resource: "@ProjetBundle/Resources/config/routing/tache.yml"
+    prefix:   /tache

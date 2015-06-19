@@ -1,0 +1,47 @@
+tache:
+    path:     /{id_projet}/taches
+    defaults: { _controller: "ProjetBundle:Tache:index" }
+
+tache_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProjetBundle:Tache:show" }
+
+tache_new:
+    path:     /{id_projet}/new
+    defaults: { _controller: "ProjetBundle:Tache:new" }
+
+tache_create:
+    path:     /create
+    defaults: { _controller: "ProjetBundle:Tache:create" }
+    requirements: { _method: post }
+
+tache_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProjetBundle:Tache:edit" }
+
+tache_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProjetBundle:Tache:update" }
+    requirements: { _method: post|put }
+
+tache_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProjetBundle:Tache:delete" }
+    requirements: { _method: post|delete }
+
+tache_supprimer:
+    path:     /{id}/sup
+    defaults: { _controller: "ProjetBundle:Tache:supprimer" }
+
+list_taches_users:
+    path:     /users/tache_{id}
+    defaults: { _controller: "ProjetBundle:Tache:listTachesUsers" }
+
+tache_edit_affecter:
+    path:     /{id}/Affecter
+    defaults: { _controller: "ProjetBundle:Tache:editAffecter" }
+
+tache_update_affecter:
+    path:     /{id}/upAffecter
+    defaults: { _controller: "ProjetBundle:Tache:updateAffecter" }
+    requirements: { _method: post|put }

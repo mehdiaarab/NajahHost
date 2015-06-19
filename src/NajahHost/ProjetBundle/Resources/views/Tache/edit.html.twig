@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h3>Modification</h3>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        {% if not edit_form.vars.valid %}
+                            <div class="alert alert-dismissible alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                {{ form_errors(edit_form) }}
+                            </div>
+                        {% endif %}
+                        <form action="{{ path('tache_update', { 'id': entity.id }) }}" {{ form_enctype(edit_form) }} method="POST">
+                            <div class="form-group">
+                                <label for="">Titre</label>
+                                {{ form_widget(edit_form.titre, {'attr': {'class':'form-control','placeholder':'titre du projet'}}) }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Description</label>
+                                {{ form_widget(edit_form.description, {'attr': {'class':'form-control','placeholder':'Description'}}) }}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Date de début</label>
+                                        {{ form_widget(edit_form.dateD, {'attr': {'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Date de fin</label>
+                                        {{ form_widget(edit_form.dateF, {'attr': {'class':'form-control'}}) }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-left col-lg-6">
+                                <a class="btn btn-default" href="{{ path('tache', { 'id_projet': entity.projet.id }) }}">
+                                    <i class="glyphicon glyphicon-list"></i> Retour à la liste
+                                </a>
+                            </div>
+                            <div class="text-right col-lg-6">
+                                <button type="submit" class="btn btn-success" >Confirmer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
