@@ -19,9 +19,11 @@ class ProjetType extends AbstractType
             ->add('description')
             ->add('dateD','date', array(
                 'years' => range(date('Y')-5 , date('Y')+5),
+                'widget' => 'choice',
             ))
             ->add('dateF','date', array(
                 'years' => range(date('Y')-5 , date('Y')+5),
+                'widget' => 'choice',
             ))
         ;
     }

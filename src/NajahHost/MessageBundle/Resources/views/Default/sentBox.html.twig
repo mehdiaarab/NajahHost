@@ -18,7 +18,10 @@
                                     <td><a href="{{ path('profile', {'username' : 'mehdiaarab'}) }}">{{ thread.createdBy.username }}</a></td>
                                     <td><b>{{ thread.createdAt|date("m/d/Y H:i:s")}}</b></td>
                                     <td><b>{{ thread.subject }}</b></td>
-                                    <td><a class="btn btn-default btn-sm" href="">Voir</a></td>
+                                    <td>
+                                        <a class="btn btn-default btn-sm" href="{{ path('show_thread', {'threadid':thread.id}) }}">Voir</a>
+                                        <a class="btn btn-sm btn-danger" href="{{ path('delete_thread', {'threadid' : thread.id}) }}">Suppr.</a>
+                                    </td>
                                 </tr>
                             {% endfor %}
                         </table>

@@ -5,6 +5,7 @@ namespace NajahHost\MessageBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -19,7 +20,6 @@ class DefaultController extends Controller
 
     public function sendMessageAction($username)
     {
-
 
         $form = $this->createFormBuilder()
             ->add('subject', 'text')
@@ -51,7 +51,7 @@ class DefaultController extends Controller
 
                 $session = $this->get('session')->getFlashBag()->add('success'
                     , 'votre message a été envoyer avec succès');
-                return $this->redirect($this->generateUrl('messages'));
+                return $this->redirect($this->generateUrl('sent_box'));
 
             } catch (\Exception $e) {
                 ladybug_dump($data);
@@ -75,7 +75,9 @@ class DefaultController extends Controller
     public function sentBoxAction()
     {
 
-        return $this->render('MessageBundle:Default:sentBox.html.twig');
+        $provider = $this->container->get('fos_message.provider');
+        $threads = $provider->getSentThreads();
+        return $this->render('MessageBundle:Default:sentBox.html.twig', array('threads' => $threads));
     }
 
     public function showThreadAction($threadid)
@@ -105,6 +107,10 @@ class DefaultController extends Controller
                 $sender = $this->container->get('fos_message.sender');
                 $sender->send($message);
 
+                $session = $this->get('session')->getFlashBag()->add('success'
+                    , 'votre message a été envoyer avec succès');
+                return $this->redirect($this->generateUrl('sent_box'));
+
             }catch (Exception $e){
 
             }
@@ -113,6 +119,19 @@ class DefaultController extends Controller
         return $this->render('MessageBundle:Default:showThread.html.twig',
             array('thread' => $thread, 'form' => $form->createView())
         );
+    }
+
+
+    public function deleteThreadAction($threadid)
+    {
+
+        $provider = $this->container->get('fos_message.provider');
+        $thread = $provider->getThread($threadid);
+        //$thread->setIsDeletedByParticipant($thread->getCreatedBy(), true);
+
+        ladybug_dump($thread);
+
+        return new Response("deleted");
     }
 
 }

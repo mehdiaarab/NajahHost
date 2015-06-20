@@ -6,22 +6,32 @@
                 <div class="panel">
                     <div class="panel-body">
                         <h4 class="page-header">Messages : <span class="label label-default">Inbox</span></h4>
-                        <table class="table table-responsive">
-                            <tr>
-                                <th>De.</th>
-                                <th>Date d'envoie</th>
-                                <th>Sujet</th>
-                                <th>Action</th>
-                            </tr>
-                            {% for thread in threads %}
+                        <a class="pull-right btn btn-sm btn-inverse" href="{{ path('sent_box') }}">sentBox</a>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <h3></h3>
+                            <table class="table table-responsive">
                                 <tr>
-                                    <td><a href="{{ path('profile', {'username' : 'mehdiaarab'}) }}">{{ thread.createdBy.username }}</a></td>
-                                    <td><b>{{ thread.createdAt|date("m/d/Y H:i:s")}}</b></td>
-                                    <td><b>{{ thread.subject }}</b></td>
-                                    <td><a class="btn btn-default btn-sm" href="{{ path('show_thread', {'threadid':thread.id}) }}">Voir</a></td>
+                                    <th>De.</th>
+                                    <th>Date d'envoie</th>
+                                    <th>Sujet</th>
+                                    <th>Action</th>
                                 </tr>
-                            {% endfor %}
-                        </table>
+                                {% for thread in threads %}
+                                    <tr {% if not fos_message_is_read(thread) %}
+                                        class="active"
+                                    {% endif %} >
+                                        <td>
+                                            <a href="{{ path('profile', {'username' : 'mehdiaarab'}) }}">{{ thread.createdBy.username }}</a>
+                                        </td>
+                                        <td><b>{{ thread.createdAt|date("m/d/Y H:i:s") }}</b></td>
+                                        <td><b>{{ thread.subject }}</b></td>
+                                        <td><a class="btn btn-default btn-sm"
+                                               href="{{ path('show_thread', {'threadid':thread.id}) }}">Voir</a></td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
