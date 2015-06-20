@@ -144,7 +144,7 @@ class ProjetController extends Controller
     {
         $form = $this->createForm(new ProjetType(), $entity, array(
             'action' => $this->generateUrl('projet_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
+            'method' => 'post',
         ));
 
         $form->add('submit', 'submit', array('label' => 'Update'));
