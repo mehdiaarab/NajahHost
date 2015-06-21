@@ -147,10 +147,10 @@ class TacheController extends Controller
     {
         $form = $this->createForm(new TacheType(), $entity, array(
             'action' => $this->generateUrl('tache_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
+            'method' => 'post',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Confirmer'));
 
         return $form;
     }
@@ -167,21 +167,10 @@ class TacheController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Tache entity.');
         }
-
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-
         $em->flush();
-
         return $this->redirect($this->generateUrl('tache_show', array('id' => $id)));
-
-
-        return $this->render('ProjetBundle:Tache:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
     }
     public function editAffecterAction($id)
     {
@@ -211,16 +200,8 @@ class TacheController extends Controller
         }
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('list_taches_users', array('id' => $id)));
-        }
-
-        return $this->render('ProjetBundle:Tache:Affecter.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-        ));
+        $em->flush();
+        return $this->redirect($this->generateUrl('list_taches_users', array('id' => $id)));
     }
     /**
      * Deletes a Tache entity.

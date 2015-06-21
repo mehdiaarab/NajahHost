@@ -19,7 +19,8 @@ class TacheType extends AbstractType
             ->add('description')
             ->add('dateD')
             ->add('dateF')
-            ->add('employes', null, array(
+            ->add('employes', 'entity', array(
+                'class' => 'UserBundle:User',
                 'expanded' => true,
                 'multiple' => true,
             ))
