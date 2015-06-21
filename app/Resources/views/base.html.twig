@@ -37,9 +37,13 @@
                 </ul>
                 {% if app.user is not empty %}
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('messages') }}"><i class="fa fa-envelope"></i> Messages
+                        <li><a href=""><i class="fa fa-bell"></i>  ( 0 )</a></li>
+                        <li><a href="{{ path('messages') }}"><i class="fa fa-envelope"></i>
                                 ( {{ fos_message_nb_unread() }} )</a></li>
                         <li><a href="{{ path('list_all_users') }}"><i class="fa fa-users"></i> Membres</a></li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('panel_chef_projet') }}"><i class="fa fa-dashboard"></i> Panel chef projet</a></li>
+                        {% endif %}
                         <li><a href="{{ path('profile', {'username': app.user.username}) }}"><i
                                         class="fa fa-user"></i> {{ app.user.username }}</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out"></i> Deconnexion</a>

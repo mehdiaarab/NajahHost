@@ -30,5 +30,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/profile/, role: ROLE_USER }
-        - { path: /projet/, role: ROLE_USER }
+        - { path: /panel-chef-projet/, role: ROLE_ADMIN }
         - { path: ^/users/, role: ROLE_USER }

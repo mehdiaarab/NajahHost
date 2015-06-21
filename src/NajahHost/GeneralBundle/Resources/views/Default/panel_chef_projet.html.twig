@@ -1,0 +1,64 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <!-- Panel Menu  -->
+            <div class="col-lg-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h4 class="page-header">Panel chef projet : <span class="myColor">{{ app.user.username }}</span>
+                        </h4>
+
+                        <div class="help-block">Menu principale</div>
+                        <a class="btn btn-primary btn-lg" href="{{ path('homepage') }}"><i class="fa fa-home"></i>
+                            Accueil</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('projet') }}"><i class="fa fa-list"></i> Mes
+                            projets</a>
+                        <a class="btn btn-primary btn-lg" href="{{ path('list_all_users') }}"><i
+                                    class="fa fa-group"></i> List des membres</a>
+                        <a class="btn btn-success btn-lg" href="{{ path('projet_new') }}"><i class="fa fa-group"></i>
+                            Créer un nouveau
+                            projet</a>
+                        <!-- end menu principale -->
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h2></h2>
+
+                                <div class="help-block">List de mes projets actives</div>
+                                <div class="list-group">
+                                    {% for project in projects %}
+                                        <a href="{{ path('projet_show',{'id' : project.id}) }}" class="list-group-item">
+                                            <h4 class="list-group-item-heading">{{ project.titre }}</h4>
+                                            <p class="list-group-item-text">{{ project.description[:200] ~ '...' }}</p>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h2></h2>
+
+                                <div class="help-block">Messages</div>
+                                <ul class="list-group">
+                                    {% for thread in threads %}
+                                        {% if not fos_message_is_read(thread) %}
+                                        <li class="list-group-item">
+                                            <a href="{{ path('show_thread',{'threadid':thread.id}) }}" class="message-name"><span class="small">from : </span>
+                                                <b>{{ thread.createdBy }}</b> {{ thread.subject }} </a>
+                                        </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <!--List des projets  -->
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,3 +1,7 @@
 homepage:
     path:     /
     defaults: { _controller: GeneralBundle:Default:index }
+
+panel_chef_projet:
+    path:     /panel-chef-projet
+    defaults: { _controller: GeneralBundle:Default:panel_chef }
