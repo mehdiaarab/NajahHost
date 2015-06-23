@@ -1,3 +1,7 @@
 list_all_users:
     path:     /users/all
     defaults: { _controller: UserBundle:Default:listAllUsers }
+
+notifications:
+  path: /notifications
+  defaults: { _controller: UserBundle:Default:notifications}

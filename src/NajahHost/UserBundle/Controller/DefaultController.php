@@ -3,6 +3,7 @@
 namespace NajahHost\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -17,6 +18,13 @@ class DefaultController extends Controller
         return $this->render('UserBundle:Default:listAllUsers.html.twig', array('users' => $users));
     }
 
+    public function notificationsAction()
+    {
+
+        $notifications = $this->getDoctrine()->getRepository('UserBundle:Notification')->getNbNotifications($this->getUser()->getId());
+        return $this->render('UserBundle:Default:notifications.html.twig', array('notifications' => $notifications));
+
+    }
 
 
 }

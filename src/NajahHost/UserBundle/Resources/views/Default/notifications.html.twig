@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h4 class="page-header">Notifications</h4>
+                        <table class="table  table-responsive">
+                            {% for notification in notifications %}
+                                <tr>
+                                    <td>
+                                            Vous avez une nouvel tâche <a class="btn btn-default btn-sm"
+                                                                          href="{{ path('tache_show',{'id':notification.tache_id}) }}">Voir tâche</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

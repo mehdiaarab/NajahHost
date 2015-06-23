@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ path('homepage') }}">Naja7Host</a>
+                <a class="navbar-brand" href="{{ path('homepage') }}"><b class="myColor" >Naja7Host</b></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -37,7 +37,7 @@
                 </ul>
                 {% if app.user is not empty %}
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href=""><i class="fa fa-bell"></i>  ( 0 )</a></li>
+                        <li><a href="{{ path('notifications') }}"><i class="fa fa-bell"></i>  ( {{ nb_notifications }} )</a></li>
                         <li><a href="{{ path('messages') }}"><i class="fa fa-envelope"></i>
                                 ( {{ fos_message_nb_unread() }} )</a></li>
                         <li><a href="{{ path('list_all_users') }}"><i class="fa fa-users"></i> Membres</a></li>

@@ -34,6 +34,11 @@ class User extends BaseUser implements ParticipantInterface
      * @ORM\Column(name="profession", type="text",nullable=true)
      */
     private $profession="Développeur";
+
+    /**
+     *
+     */
+    private $notifications;
     
 
 

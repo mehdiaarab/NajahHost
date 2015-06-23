@@ -2,6 +2,7 @@
 
 namespace najahhost\ProjetBundle\Controller;
 
+use NajahHost\UserBundle\Entity\Notification;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -39,9 +40,19 @@ class TacheController extends Controller
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
         $id=$request->request->get("projet");
+
         $projet = $em->getRepository('ProjetBundle:Projet')->find($id);
         $entity->setProjet($projet);
+
+        $notification = new Notification();
+        $notification->setTache($entity);
+        foreach($entity->getEmployes() as $user){
+            $notification->addUser($user);
+        }
+
         $em->persist($entity);
+        $em->persist($notification);
+
         $em->flush();
 
         return $this->redirect($this->generateUrl('tache_show', array('id' => $entity->getId())));
@@ -52,6 +63,7 @@ class TacheController extends Controller
             'projet' => $projet,
             'form'   => $form->createView(),
         ));
+        
     }
 
     /**
